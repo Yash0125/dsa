@@ -17,3 +17,22 @@ var isPalindrome = function(x) {
 };
 
 console.log(isPalindrome(x))
+
+
+// for string
+
+let inputString="nayan"
+
+function isPalindrome1(inputString) {
+  
+  inputString = inputString.toLowerCase();
+  
+  inputString =  inputString.split(' ').join('')
+  
+  let reverseString = inputString.split('').reverse().join('')
+  
+  return inputString === reverseString
+  
+}
+
+console.log(isPalindrome1(inputString))
