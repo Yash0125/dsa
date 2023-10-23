@@ -49,8 +49,6 @@ console.log(hammimgDistance(x,y))
 // Input: x = 3, y = 1
 // Output: 1
 
-let x =3;
-let y =1;
 
 var hammimgDistance1=function (x,y){
      // Convert x and y to binary strings
@@ -60,7 +58,6 @@ var hammimgDistance1=function (x,y){
     // Ensure that the binary strings have the same length by adding leading zeros
     if(x.length < y.length){
         while(x.length !==y.length){
-            // for 
             x='0'+x
         }
     }else if(x.length > y.length){
