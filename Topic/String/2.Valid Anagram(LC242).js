@@ -45,3 +45,20 @@ var isAnagram1 = function (s, t) {
 };
 
 console.log(isAnagram1(s, t));
+
+const isAnagram2 = (s, t) => {
+  const charArr = new Array(256).fill(0);
+  if (s.length !== t.length) {
+    return false;
+  }
+  for (let i = 0; i < s.length; i++) {
+    charArr[s.charCodeAt(i)]++;
+    charArr[t.charCodeAt(i)]--;
+  }
+  for (let i = 0; i <= 256; i++) {
+    if (charArr[i] !== 0) return false;
+  }
+  return true;
+};
+
+console.log(isAnagram2(s, t));
