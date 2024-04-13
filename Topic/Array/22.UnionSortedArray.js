@@ -27,3 +27,52 @@ function UnionSortedArray(arr1, arr2) {
 }
 
 console.log(UnionSortedArray(arr1, arr2));
+
+// TC : O((m+n)log(m+n))
+// SC : O(m+n)
+
+// *** optimized ***
+
+function UnionSortedArrayoptimized(arr1, arr2) {
+  let n1 = arr1.length;
+  let n2 = arr2.length;
+  let i = 0;
+  let j = 0;
+  let unionArr = [];
+
+  while (i < n1 && j < n2) {
+    if (arr1[i] <= arr2[j]) {
+      if (unionArr[unionArr.length - 1] !== arr1[i] || unionArr.length === 0)
+        // check  last element is same as current and check that array is empty or not
+        unionArr.push(arr1[i]);
+      i++;
+    } else {
+      if (unionArr[unionArr.length - 1] !== arr2[j] || unionArr.length === 0)
+        unionArr.push(arr2[j]);
+      j++;
+    }
+  }
+
+  // let say second array is exhausted but first one is remaining.
+
+  while (i < n1) {
+    if (unionArr[unionArr.length - 1] !== arr1[i] || unionArr.length === 0)
+      unionArr.push(arr1[i]);
+    i++;
+  }
+
+  // let say first array is exhausted but second one is remaining.
+
+  while (j < n2) {
+    if (unionArr[unionArr.length - 1] !== arr2[j] || unionArr.length === 0)
+      unionArr.push(arr2[j]);
+    j++;
+  }
+
+  return unionArr;
+}
+
+console.log(UnionSortedArrayoptimized(arr1, arr2));
+
+// TC : O(n1 + n2)
+// SC : O(n1 + n2)
