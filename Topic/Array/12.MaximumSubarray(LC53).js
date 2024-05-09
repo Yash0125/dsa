@@ -55,3 +55,36 @@ var maxSubArrayOptimize = function(nums) {
 
 
 console.log(maxSubArrayOptimize(nums))
+
+
+// Below : Maximum subarray array anyone array not all possible subarray
+
+var maxSubArray = function(nums) {
+    let sum = 0;
+    let max = nums[0];
+    let start = 0;
+    let end = 0;
+    let tempStart = 0;
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (sum === 0) {
+            tempStart = i;
+        }
+        
+        sum += nums[i];
+        
+        if (sum > max) {
+            max = sum;
+            start = tempStart;
+            end = i;
+        }
+        
+        if (sum < 0) {
+            sum = 0;
+        }
+    }
+    
+    return nums.slice(start, end + 1); // Return the subarray with maximum sum
+};
+
+console.log(maxSubArray(nums));
