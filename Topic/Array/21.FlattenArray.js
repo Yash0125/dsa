@@ -14,6 +14,24 @@ function flattenArray(nums) {
 
 console.log(flattenArray(nums));
 
+// Other way witht concat
+
+const a = [1, 2, 3, [4, [5, 6]], 7, 8];
+
+let temp = [];
+function flattenArray2(a, temp) {
+  for (let i = 0; i < a.length; i++) {
+    if (Array.isArray(a[i])) {
+      flattenArray(a[i], temp);
+    } else {
+      temp.push(a[i]);
+    }
+  }
+  return temp;
+}
+
+console.log(flattenArray2(a, temp));
+
 // other type  of quetion but method is same
 
 // Write a function to return the count of numbers in an Array | MakeMyTrip Frontend Interview Question
