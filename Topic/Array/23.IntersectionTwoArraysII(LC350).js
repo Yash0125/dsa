@@ -70,3 +70,29 @@ console.log(intersectOptimized(nums1, nums2));
 
 // TC : O(n1 + n2)
 // SC : O(1)
+
+
+
+let num1 = [1,2,2,3,4,4];
+let num2 = [2,2,4,5,5,6,2000];
+const intersect = (num1,num2) =>{
+    let obj = {}
+    for(let i =0;i<num1.length;i++){
+        if(obj[num1[i]]){
+            obj[num1[i]]++
+        }else {
+            obj[num1[i]] = 1
+        }
+    }
+    
+    let result = [];
+    
+    for(let j = 0; j<num2.length;j++){
+        if(obj[num2[j]]){
+            result.push(num2[j]);
+            obj[num2[j]]--
+        }
+    }
+    return result
+}
+console.log(intersect(num1,num2))
