@@ -55,9 +55,15 @@ function rotateArrayOptimised(nums, k) {
     k = k % size;
   }
 
-  reverse(nums, 0, k - 1); // O(k)
-  reverse(nums, k, nums.length - 1); // O(n-k)
-  reverse(nums, 0, nums.length - 1); // O(n)
+  // Rotate by left k times
+  // reverse(nums, 0, k - 1); // O(k)
+  // reverse(nums, k, nums.length - 1); // O(n-k)
+  // reverse(nums, 0, nums.length - 1); // O(n)
+
+  // Rotate by right k times
+  reverse(nums, 0, nums.length - 1);
+  reverse(nums, 0, k - 1);
+  reverse(nums, k, nums.length - 1);
 
   return nums;
 }
